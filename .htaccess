@@ -1,0 +1,13 @@
+<IfModule security2_module>
+    SecRuleRemoveByTag unoeuro
+</IfModule>
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^(client|api)($|/) - [L]
+
+RewriteCond %{REQUEST_URI} ^/static/
+RewriteRule (static)(.*?)?$ /client/bin/$2 [L]
+
+RewriteRule ^ client/bin/index.html [L,QSA]

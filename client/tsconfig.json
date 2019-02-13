@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "jsx": "react",
+      "target": "es5",
+      "moduleResolution": "node",
+      "module": "esnext",
+      "noImplicitAny": true,
+      "suppressImplicitAnyIndexErrors": true,
+      "noImplicitUseStrict": true,
+      "noImplicitReturns": true,
+      "allowSyntheticDefaultImports": true,
+      "sourceMap": true,
+      "skipLibCheck": true,
+      "experimentalDecorators": true,
+      "lib": ["dom", "es5", "scripthost", "es2015.promise"]
+    }
+  }
