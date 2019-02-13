@@ -23,8 +23,8 @@ export class HttpService {
             endpoint = endpoint + this.buildQueryString(data);
         } 
 
-        const rootUrl = "http://trackingapp/";
-        
+        const rootUrl = "http://konstantyner.org/social_usage_tracking/";
+
         return fetch(rootUrl + 'api/' + endpoint, {
             method: method,
             mode: "cors",
