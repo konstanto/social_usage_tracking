@@ -52,7 +52,7 @@ let config = {
         filename: "[name].js",
         chunkFilename: "[name].chunk.js",
         sourceMapFilename: "[file].map",
-        publicPath: "/static/"
+        publicPath: "/social_usage_tracking/static/"
     },
     devServer: {
         headers: { "Access-Control-Allow-Origin": "*" },
