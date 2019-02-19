@@ -1,6 +1,6 @@
 Options -Indexes
 RewriteEngine On
-RewriteBase /api/
+RewriteBase /social_usage_tracking/api/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

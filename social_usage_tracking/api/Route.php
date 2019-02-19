@@ -10,7 +10,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
 
 // Fetch method and URI from somewhere
 $httpMethod = $_SERVER['REQUEST_METHOD'];
-$uri = substr($_SERVER['REQUEST_URI'], strlen("/api"));
+$uri = substr($_SERVER['REQUEST_URI'], strlen("/social_usage_tracking/api"));
 
 // Strip query string (?foo=bar) and decode URI
 if (false !== $pos = strpos($uri, '?')) {
