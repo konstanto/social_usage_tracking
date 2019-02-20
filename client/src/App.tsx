@@ -21,13 +21,25 @@ class Tracker extends React.Component<{}, TrackerState> {
 			workplaceDescription: "",
 			facebook: null,
 			facebookDescription: "",
-			hasSubmitted: false
+			hasSubmitted: false,
+			location: {
+				work: false,
+				home: false,
+				travelling: false,
+				other: false
+			}
 		}
 	}
 
 	private setNewState(name: string, newValue: string | boolean) {
 		const oldState = { ...this.state };
 		oldState[name] = newValue;
+		this.setState(oldState);
+	}
+
+	private toggleNewStateCheckbox(name: string) {
+		const oldState = { ...this.state };
+		oldState.location[name] = !oldState.location[name];
 		this.setState(oldState);
 	}
 
@@ -81,6 +93,16 @@ class Tracker extends React.Component<{}, TrackerState> {
 								</div>
 							</>
 							: null}
+					</div>
+
+					<div className="location-group">
+						<p>Hvor har du været i denne periode?</p>
+						<div className="buttons">
+							<label htmlFor="work">Arbejde <input id="work" type="checkbox" checked={this.state.location.work} onChange={() => { this.toggleNewStateCheckbox("work") }} /></label> 
+							<label htmlFor="home">Hjemme <input id="home" type="checkbox" checked={this.state.location.home} onChange={() => { this.toggleNewStateCheckbox("home") }} /></label> 
+							<label htmlFor="travelling">Transport <input id="travelling" type="checkbox" checked={this.state.location.travelling} onChange={() => { this.toggleNewStateCheckbox("travelling") }} /></label> 
+							<label htmlFor="other">Andet <input id="other" type="checkbox" checked={this.state.location.other} onChange={() => { this.toggleNewStateCheckbox("other") }} /></label> 
+						</div>
 					</div>
 					<button type="submit">Send</button>
 				</form>

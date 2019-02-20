@@ -21,6 +21,7 @@ class Tracker
         $workplaceDescription = $trackingData->workplaceDescription;
         $facebook = filter_var($trackingData->facebook, FILTER_VALIDATE_BOOLEAN);
         $facebookDescription = $trackingData->facebookDescription;
+        $location = $trackingData->location;
         
         
         $trackingStatement = $this->db->prepare("
@@ -33,7 +34,8 @@ class Tracker
             hasUsedFacebook,
             whyFacebook,
             hasUsedWorkplace,
-            whyWorkplace
+            whyWorkplace,
+            location
           )
         VALUES (
           ?,
@@ -42,17 +44,19 @@ class Tracker
           ?,
           ?,
           ?,
+          ?,
           ?
           )
       ");
 
-      $trackingStatement->bind_param('ssssss',
+      $trackingStatement->bind_param('sssssss',
           $partitipantId,
           $smsSendoutDateTime,
           $facebook,
           $facebookDescription,
           $workplace,
-          $workplaceDescription
+          $workplaceDescription,
+          $location
       );
       $trackingStatement->execute();
     }

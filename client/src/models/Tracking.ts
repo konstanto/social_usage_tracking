@@ -5,4 +5,10 @@ export interface Tracking {
     workplaceDescription: string;
     facebook: boolean;
     facebookDescription: string;
+    location: {
+        home: boolean,
+        work: boolean,
+        travelling: boolean,
+        other: boolean
+    }
 }
